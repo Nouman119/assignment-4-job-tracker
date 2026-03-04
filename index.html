@@ -1,0 +1,375 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+
+    <!-- ========= custom css ============= -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- ========= Font ================ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="max-w-[1110px] mx-auto geist-font  bg-slate-50 ">
+    <div class="min-h-screen p-4 md:p-8 text-slate-800">
+        <div>
+            <!-- Header section -->
+            <header class="mb-8">
+                <h1 class="text-3xl font-bold text-slate-900">Job Application Tracker</h1>
+            </header>
+
+            <!-- Dashboard section -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+                    <p class="text-sm font-semibold text-slate-500 mb-1">Total</p>
+                    <p id="total-count" class="text-3xl font-bold">8</p>
+                </div>
+                <div  class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+                    <p class="text-sm font-semibold text-slate-500 mb-1">Interview</p>
+                    <p id="interview-count" class="text-3xl font-bold text-emerald-500">0</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-slate-100">
+                    <p class="text-sm font-semibold text-slate-500 mb-1">Rejected</p>
+                    <p id="rejected-count" class="text-3xl font-bold text-red-500">0</p>
+                </div>
+            </div>
+
+            <!-- Available Jobs section -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+                <div class="flex items-center gap-2">
+                    <h2 class="text-xl font-bold text-slate-800 mr-4">Available Jobs</h2>
+                    <div class="flex gap-2 p-1 rounded-md">
+                        <!-- Active Tab -->
+                        <button class="px-4 py-1.5 text-sm font-medium rounded transition-all duration-200 bg-blue-600 text-white tab-btn">
+                            All
+                        </button>
+
+                        <!-- Inactive Tab -->
+                        <button class="px-4 py-1.5 text-sm font-medium rounded transition-all duration-200 text-slate-500 bg-transparent hover:bg-slate-200 hover:text-slate-700 tab-btn">
+                            Interview
+                        </button>
+
+                        <!-- Inactive Tab -->
+                        <button class="px-4 py-1.5 text-sm font-medium rounded transition-all duration-200 
+                   text-slate-500 bg-transparent
+                   hover:bg-slate-200 hover:text-slate-700 tab-btn">
+                            Rejected
+                        </button>
+                    </div>
+                </div>
+                <span id="job-total-label" class="text-slate-500 font-medium">8 jobs</span>
+            </div>
+
+            <!--======= Jobs cards section ============== -->
+            <div class="space-y-4">
+                <!-- 1 number card -->
+                <div  class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">Mobile First Corp</h3>
+                    <p class="text-slate-500 mb-4">React Native Developer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Remote</span> • <span>Full-time</span> • <span>$130,000 - $175,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6  leading-relaxed">
+                        Build cross-platform mobile applications using React Native. Work on products used by millions
+                        of users worldwide.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 2 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">WebFlow Agency</h3>
+                    <p class="text-slate-500 mb-4">Web Designer & Developer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Los Angeles, CA</span> • <span>Part-time</span> • <span>$80,000 - $120,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Create stunning web experiences for high-profile clients. Must have portfolio and experience
+                        with modern web design trends.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 3 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">DataViz Solutions</h3>
+                    <p class="text-slate-500 mb-4">Data Visualization Specialist</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Boston, MA</span> • <span>Full-time</span> • <span>$125,000 - $165,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong
+                        analytical thinking.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 4 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">CloudFirst Inc</h3>
+                    <p class="text-slate-500 mb-4">Backend Developer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Seattle, WA </span> • <span>Full-Time</span> • <span>$140,000 - $190,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Create stunning web experiences for high-profile clients. Must have portfolio and experience
+                        with modern web design trends.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 5 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">Innovation Labs</h3>
+                    <p class="text-slate-500 mb-4">UI/UX Engineer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Austin, TX </span> • <span>Full-time</span> • <span>$110,000 - $150,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Create stunning web experiences for high-profile clients. Must have portfolio and experience
+                        with modern web design trends.
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 6 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">MegaCorp Solutions</h3>
+                    <p class="text-slate-500 mb-4">JavaScript Developer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>New York, NY</span> • <span>Full-time</span> • <span>$130,000 - $170,00</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">Build enterprise applications with JavaScript
+                        and modern
+                        frameworks. We offer competitive compensation, health insurance, and professional development
+                        opportunities.</p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+                <!-- 7 number card -->
+                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">StartupXYZ</h3>
+                    <p class="text-slate-500 mb-4">Full Stack Engineer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>Remote</span> • <span>Full-time</span> • <span>$120,000 - $160,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Join our fast-growing startup and work on our core platform. Experience with Node.js and React
+                        required. Great benefits and equity package included..
+                    </p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div> <!-- 8 number card -->
+                <div class="bg-white p-6 mb-6 rounded-xl border border-slate-200 shadow-sm relative job-card">
+                    <button class="absolute top-6 right-6 p-2 text-slate-300 border border-slate-100 rounded transition-all duration-300 hover:bg-red-50 hover:text-red-500 hover:border-red-200 active:scale-90 shadow-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            viewBox="0 0 16 16">
+                            <path
+                                d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z">
+                            </path>
+                            <path
+                                d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <h3 class="text-lg font-bold text-blue-900">TechCorp Industries</h3>
+                    <p class="text-slate-500 mb-4">Senior Frontend Developer</p>
+
+                    <div class="flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-400 mb-4">
+                        <span>San Francisco, CA </span> • <span>Full-time </span> • <span>$130,000 - $175,000</span>
+                    </div>
+
+                    <span class="inline-block bg-blue-50 text-blue-700 text-xs font-bold px-3 py-2 rounded mb-4">NOT
+                        APPLIED</span>
+
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">We are looking for an experienced Frontend
+                        Developer to build
+                        scalable web applications using React and TypeScript. You will work with a talented team on
+                        cutting-edge
+                        projects.</p>
+
+                    <div class="flex gap-3">
+                        <button
+                            class="px-4 py-2 border border-emerald-400 text-emerald-500 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-md active:scale-95">Interview</button>
+                        <button
+                            class="px-4 py-2 border border-red-400 text-red-400 text-xs font-semibold rounded uppercase tracking-wider transition-all duration-300 hover:bg-red-500 hover:text-white hover:shadow-md active:scale-95">Rejected</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- No Jobs Available section  -->
+
+            <div id="no-jobs-message" class="hidden bg-white pt-[111px] pb-[111px] rounded-xl border border-slate-200 shadow-sm relative">
+                <div class="text-center">
+
+                    <div class="mx-auto h-16 w-16 text-blue-500">
+                        <img src="./images/no jobs icon.png" alt="">
+                    </div>
+                    <p class="mt-4 text-xl font-semibold text-gray-800">No jobs available</p>
+                    <p class="mt-1 text-gray-500">Check back soon for new job opportunities</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
